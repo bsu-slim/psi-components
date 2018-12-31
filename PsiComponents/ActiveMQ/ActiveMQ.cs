@@ -49,11 +49,11 @@ namespace ActiveMQComponent
             this.activeMQProcess = ActiveMQProcess.Instance;
             this.activeMQProcess.Start();
 
-            //Connect to ActiveMQ Server
+            //Connect to ActiveMQ Server (try several times in case the process takes a while to get started.
             IConnectionFactory factory = new NMSConnectionFactory(
                 $"{Config.Global.ActiveMQ.Protocol}://{Config.Global.ActiveMQ.Host}:{Config.Global.ActiveMQ.Port}"
             );
-
+            
             bool notConnected = true;
             int attempts = 0;
             int maxAttempts = 5;
@@ -71,7 +71,7 @@ namespace ActiveMQComponent
                 }
             }
             Console.WriteLine($"{Config.Global.ActiveMQ.Protocol}://{Config.Global.ActiveMQ.Host}:{Config.Global.ActiveMQ.Port}");
-            this.connection = factory.CreateConnection(); //Last Try
+            this.connection = factory.CreateConnection(); //Last try to connect to ActiveMQ
             this.session = this.connection.CreateSession();
 
             this.destinationSendName = destinationSendName;
