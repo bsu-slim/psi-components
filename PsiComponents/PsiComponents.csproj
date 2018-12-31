@@ -203,8 +203,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ActiveMQ\README.md" />
     <None Include="App.config" />
+    <None Include="AudioOutput\README.md" />
+    <None Include="default.conf" />
+    <None Include="GoogleASR\README.md" />
+    <None Include="GoogleSpeak\README.md" />
+    <None Include="GoogleTranslate\README.md" />
     <None Include="packages.config" />
+    <None Include="PipelineControl\README.md" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -26,7 +26,7 @@ namespace PsiComponents
 
                 IProducer<AudioBuffer> audioInput = new AudioCapture(pipeline, new AudioCaptureConfiguration() { OutputFormat = waveFormat });
                 audioInput.Write("audio", store);
-                DataFaucet df = new DataFaucet(pipeline);
+                DataFaucet<AudioBuffer> df = new DataFaucet<AudioBuffer>(pipeline);
                 audioInput.PipeTo(df);
                 AggregateDump dump = new AggregateDump(pipeline);
                 df.PipeTo(dump);

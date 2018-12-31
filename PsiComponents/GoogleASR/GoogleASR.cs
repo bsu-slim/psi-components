@@ -9,16 +9,31 @@ using Microsoft.Psi.Audio;
 using Microsoft.Psi;
 using Microsoft.Psi.Components;
 
+
 namespace GoogleASRComponent
 {
+    /// <summary>
+    /// PSI component to convert audio bytes to text using Google API.
+    /// </summary>
     public class GoogleASR : ConsumerProducer<AudioBuffer, string>
     {
+        /// <summary>
+        /// The language that incoming audio bytes will be interpretted as.
+        /// </summary>
         public string AudioLanguage { get; set; }
+        /// <summary>
+        /// Google API client object
+        /// </summary>
         private SpeechClient speech;
 
+        /// <summary>
+        /// Default constructor will set expected audio language to english.
+        /// </summary>
+        /// <param name="pipeline"></param>
         public GoogleASR(Pipeline pipeline) : base(pipeline)
         {
             speech = SpeechClient.Create();
+            this.AudioLanguage = "en";
         }
 
 
@@ -28,6 +43,12 @@ namespace GoogleASRComponent
             this.AudioLanguage = audioLanguage;
         }
 
+        /// <summary>
+        /// Pipeline function that will handle incoming pipeline packages of audio bytes.
+        /// Will translate audio bytes to text and send text down the pipeline.
+        /// </summary>
+        /// <param name="audio"></param>
+        /// <param name="e"></param>
         protected override void Receive(AudioBuffer audio, Envelope e)
         {
             if (audio.Data.Length > 0)

@@ -44,6 +44,7 @@ namespace ActiveMQComponent
         public ActiveMQ(Pipeline pipeline, string destinationRecvName, string destinationSendName) : base(pipeline)
         {
             checkConfig(); //Check that the config has all items we need, otherwise throw an exception
+            
             //Start ActiveMQ server 
             this.activeMQProcess = ActiveMQProcess.Instance;
             this.activeMQProcess.Start();

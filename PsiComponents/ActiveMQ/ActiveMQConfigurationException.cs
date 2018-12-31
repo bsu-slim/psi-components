@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ActiveMQComponent
 {
+    /// <summary>
+    /// Exception to be thrown if their is an error with the JsonConfig configurating file for ActiveMQ.
+    /// </summary>
     [Serializable]
     class ActiveMQConfigurationException : Exception
     {
