@@ -17,6 +17,6 @@ Microsoft.Psi.Audio
 Google.Cloud.TextToSpeech.V1   
 
 # Contributors 
-Edgar Sosa
-Alex Mussell
-James Brooks
+Edgar Sosa   
+Alex Mussell   
+James Brooks   

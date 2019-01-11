@@ -20,5 +20,5 @@ Microsoft.Psi.Runtime
 Microsoft.Psi.Runtime.Windows   
 
 # Contributors
-James Brooks
-Alex Mussell
+James Brooks   
+Alex Mussell   

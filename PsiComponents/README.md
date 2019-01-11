@@ -18,3 +18,18 @@ This repo contains a collection of Microsoft PSI components developed by the SLI
 * Producers: Produce an input data stream but do not have any input PSI data streams.   
 * Bridges: Provide a message passing interface between PSI components and programs written in other programming languages.   
 * Controls: Provide an interface to control pipeline data flow
+
+# Examples
+SpeechTranslate.cs uses GoogleASR, GoogleTranslate, GoogleSpeak, ActiveMQ, AudioOutput, DataFaucet, and AggregateDump. 
+It launches a GUI to translate audio from one language to another. Just launch the program. Click the speak button
+speak into your computer and then press stop. Note: this example has only been tested on windows. 
+
+In order to use the example you will need to do the setup required for each component listed above. The setup 
+instructions for each component are in the READMEs in each components folder. You may also need to add System.Drawing
+as a reference to compile the GUI.
+
+# Contributors
+Alex Mussell   
+Heather Larsen   
+James Brooks   
+Edgar Sosa   

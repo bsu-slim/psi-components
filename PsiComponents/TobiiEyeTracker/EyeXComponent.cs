@@ -41,82 +41,82 @@ namespace EyeXComponent
 
         private static double fixationX = 0.0;
         private static double fixationY = 0.0;
-        /***************************GLOBAL_VARIABLES**********************/
-        /**
-         * Driver
-         */
-        public static void Main(string[] args)
-        {
-            switch (EyeXHost.EyeXAvailability)
-            {
-                case Tobii.EyeX.Client.EyeXAvailability.NotAvailable:
-                    Console.WriteLine("EyeX Engine unavailable.");
-                    Console.WriteLine("Please install the EyeX Engine then retry.");
-                    Console.In.Read();
-                    return;
-                case Tobii.EyeX.Client.EyeXAvailability.NotRunning:
-                    Console.WriteLine("EyeX Engine is not running.");
-                    Console.WriteLine("Please start the EyeX Engine and retry.");
-                    Console.In.Read();
-                    return;
-            }
+        ///***************************GLOBAL_VARIABLES**********************/
+        ///**
+        // * Driver
+        // */
+        //public static void Main(string[] args)
+        //{
+        //    switch (EyeXHost.EyeXAvailability)
+        //    {
+        //        case Tobii.EyeX.Client.EyeXAvailability.NotAvailable:
+        //            Console.WriteLine("EyeX Engine unavailable.");
+        //            Console.WriteLine("Please install the EyeX Engine then retry.");
+        //            Console.In.Read();
+        //            return;
+        //        case Tobii.EyeX.Client.EyeXAvailability.NotRunning:
+        //            Console.WriteLine("EyeX Engine is not running.");
+        //            Console.WriteLine("Please start the EyeX Engine and retry.");
+        //            Console.In.Read();
+        //            return;
+        //    }
 
-            using (EyeXHost h = new EyeXHost())
-            {
-                h.Start();
-                Console.WriteLine("EyeXHost started.");
+        //    using (EyeXHost h = new EyeXHost())
+        //    {
+        //        h.Start();
+        //        Console.WriteLine("EyeXHost started.");
 
-                h.ScreenBoundsChanged += (s, e) =>
-                {
-                    Console.WriteLine("Screen bounds in pixels: " + e);
-                };
+        //        h.ScreenBoundsChanged += (s, e) =>
+        //        {
+        //            Console.WriteLine("Screen bounds in pixels: " + e);
+        //        };
 
-                h.DisplaySizeChanged += (s, e) =>
-                {
-                    Console.WriteLine("Display size in millimeters: " + e);
-                };
+        //        h.DisplaySizeChanged += (s, e) =>
+        //        {
+        //            Console.WriteLine("Display size in millimeters: " + e);
+        //        };
 
-                h.EyeTrackingDeviceStatusChanged += (s, e) =>
-                {
-                    Console.WriteLine("Eye tracking device status: " + e);
-                };
+        //        h.EyeTrackingDeviceStatusChanged += (s, e) =>
+        //        {
+        //            Console.WriteLine("Eye tracking device status: " + e);
+        //        };
 
-                h.UserPresenceChanged += (s, e) =>
-                {
-                    Console.WriteLine("User presence: " + e);
-                };
+        //        h.UserPresenceChanged += (s, e) =>
+        //        {
+        //            Console.WriteLine("User presence: " + e);
+        //        };
 
-                h.UserProfileNameChanged += (s, e) =>
-                {
-                    Console.WriteLine("Active profile name: " + e);
-                };
+        //        h.UserProfileNameChanged += (s, e) =>
+        //        {
+        //            Console.WriteLine("Active profile name: " + e);
+        //        };
 
-                h.UserProfilesChanged += (s, e) =>
-                {
-                    Console.WriteLine("User profile names: " + e);
-                };
+        //        h.UserProfilesChanged += (s, e) =>
+        //        {
+        //            Console.WriteLine("User profile names: " + e);
+        //        };
 
-                h.GazeTrackingChanged += (s, e) =>
-                {
-                    Console.WriteLine("Gaze tracking: " + e);
-                };
+        //        h.GazeTrackingChanged += (s, e) =>
+        //        {
+        //            Console.WriteLine("Gaze tracking: " + e);
+        //        };
 
-                Timer t = new Timer();
-                t.Interval = 2000;
-                t.Elapsed += DisplayData;
-                t.Enabled = true;
+        //        Timer t = new Timer();
+        //        t.Interval = 2000;
+        //        t.Elapsed += DisplayData;
+        //        t.Enabled = true;
 
-                using (Pipeline p = Pipeline.Create())
-                {
-                    EyeXComponent eyeXComponent = new EyeXComponent(p, h);
-                    Envelope en = new Envelope();
+        //        using (Pipeline p = Pipeline.Create())
+        //        {
+        //            EyeXComponent eyeXComponent = new EyeXComponent(p, h);
+        //            Envelope en = new Envelope();
 
-                    eyeXComponent.ReceiveGazeData(en);
+        //            eyeXComponent.ReceiveGazeData(en);
 
-                    p.Run();
-                }
-            }
-        }
+        //            p.Run();
+        //        }
+        //    }
+        //}
         /******************************MAIN*******************************/
         /**
          * Initiates the eye tracker data stream.

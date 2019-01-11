@@ -65,7 +65,7 @@ namespace GoogleSpeakComponent
                 },
                 AudioConfig = new AudioConfig
                 {
-                    AudioEncoding = AudioEncoding.Linear16
+                    AudioEncoding = this.googleAudioFormat
                 }
             });
 

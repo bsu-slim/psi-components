@@ -21,5 +21,5 @@ Microsoft.Psi.Runtime.Windows
 Microsoft.Psi.Audio   
 
 # Contributors
-Alex Mussell
-James Brooks
+Alex Mussell   
+James Brooks   

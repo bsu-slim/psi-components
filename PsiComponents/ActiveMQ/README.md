@@ -43,3 +43,6 @@ Apache.NMS.ActiveMQ
 Apache.NMS.Stomp   
 Newtonsoft.Json   
 Newtonsoft.Json.Schema   
+
+# Contributors
+Alex Mussell   

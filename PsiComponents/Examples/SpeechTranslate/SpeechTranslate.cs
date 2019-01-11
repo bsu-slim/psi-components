@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Psi;
 using Microsoft.Psi.Audio;
@@ -14,18 +15,16 @@ using ActiveMQComponent;
 
 namespace PsiComponents
 {
-    class Program
+    class SpeechTranslate
     {
         static void Main(string[] args)
         {
             using (Pipeline pipeline = Pipeline.Create())
             {
 
-                var store = Store.Create(pipeline, "demo", "C:\\recordings");
                 WaveFormat waveFormat = WaveFormat.Create16kHz1Channel16BitPcm();
 
                 IProducer<AudioBuffer> audioInput = new AudioCapture(pipeline, new AudioCaptureConfiguration() { OutputFormat = waveFormat });
-                audioInput.Write("audio", store);
                 DataFaucet<AudioBuffer> df = new DataFaucet<AudioBuffer>(pipeline);
                 audioInput.PipeTo(df);
                 AggregateDump dump = new AggregateDump(pipeline);
@@ -41,9 +40,13 @@ namespace PsiComponents
 
                 ActiveMQ rasa = new ActiveMQ(pipeline, "rasa.PSI", "rasa.PYTHON");
                 gsr.PipeTo(rasa);
-                gsr.Do(m => Console.WriteLine(m));
-                gt.Do(m => Console.WriteLine(m));
-                rasa.Do(m => Console.WriteLine(m));
+
+                GUI gui = new GUI(df, dump, gsr, gt);
+                Thread thread = new Thread(() =>
+                {
+                    gui.ShowDialog();
+                });
+                thread.Start();
 
                 pipeline.RunAsync();
 

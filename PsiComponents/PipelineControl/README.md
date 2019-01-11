@@ -5,6 +5,6 @@ PSI AudioBuffers into a single AudioBuffer then dump the aggregate down the pipe
 AggregateDump component.
 
 # Contributors
-Alex Mussell
-James Brooks
-Edgar Sosa
+Alex Mussell   
+James Brooks   
+Edgar Sosa   
