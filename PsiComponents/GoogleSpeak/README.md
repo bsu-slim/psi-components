@@ -1,4 +1,4 @@
-﻿# google-speak-psi
+﻿# Google Speak PSI
 This is a PSI component to translate text to audio using a Google Cloud API.
 
 # Setup
@@ -10,8 +10,8 @@ To set up your credentials you can follow the instructions [here](https://cloud.
 Generate a JSON key file for your api key using the google cloud platform. Then set the environment variable GOOGLE_APPLICATION_CREDENTIALS
 to the path of the file.
 
-# Nuget Packages yYou Might Forget
-Microsoft.Psi.Runtime
-Microsoft.Psi.Runtime.Windows
-Microsoft.Psi.Audio
-Google.Cloud.TextToSpeech.V1
+# Nuget Packages You Might Forget
+Microsoft.Psi.Runtime   
+Microsoft.Psi.Runtime.Windows   
+Microsoft.Psi.Audio   
+Google.Cloud.TextToSpeech.V1   

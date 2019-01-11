@@ -1,4 +1,4 @@
-﻿# Google ASR
+﻿# Google ASR PSI
 This is a PSI component used to translate audio into text using a Google Cloud API.
 
 # Setup
@@ -14,8 +14,8 @@ to the path of the file.
 Connect this component to a PSI stream that is outputing AudioBuffers. Each AudioBuffer's audio content will be sent
 individually to the Google Cloud Speech API.
 
-#Nuget Package You Might Forget
-Google.Cloud.Speech.V1
-Microsoft.Psi.Runtime
-Microsoft.Psi.Runtime.Windows
-Microsoft.Psi.Audio
+# Nuget Package You Might Forget
+Google.Cloud.Speech.V1   
+Microsoft.Psi.Runtime   
+Microsoft.Psi.Runtime.Windows   
+Microsoft.Psi.Audio   

@@ -15,6 +15,6 @@ Connect this component to another PSI component that is outputing strings in the
 when instantiating this component.
 
 # Nuget Packages You Might Forget
-Google.Cloud.Translation.V2
-Microsoft.Psi.Runtime
-Microsoft.Psi.Runtime.Windows
+Google.Cloud.Translation.V2   
+Microsoft.Psi.Runtime   
+Microsoft.Psi.Runtime.Windows   

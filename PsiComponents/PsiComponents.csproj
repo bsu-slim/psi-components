@@ -44,6 +44,9 @@
     <Reference Include="Apache.NMS.Stomp, Version=1.5.4.3215, Culture=neutral, PublicKeyToken=82756feee3957618, processorArchitecture=MSIL">
       <HintPath>packages\Apache.NMS.Stomp.1.5.4\lib\net40\Apache.NMS.Stomp.dll</HintPath>
     </Reference>
+    <Reference Include="EyeXFramework, Version=1.8.503.0, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>packages\Tobii.EyeX.Framework.1.8.503\lib\net40\EyeXFramework.dll</HintPath>
+    </Reference>
     <Reference Include="Google.Api.CommonProtos, Version=1.3.0.0, Culture=neutral, PublicKeyToken=3ec5ea7f18953e47, processorArchitecture=MSIL">
       <HintPath>packages\Google.Api.CommonProtos.1.3.0\lib\net45\Google.Api.CommonProtos.dll</HintPath>
     </Reference>
@@ -187,6 +190,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tobii.EyeX.Client.Net20, Version=1.8.503.0, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>packages\Tobii.EyeX.Client.1.8.503\lib\net20\Tobii.EyeX.Client.Net20.dll</HintPath>
+    </Reference>
+    <Reference Include="Tobii.Research, Version=1.6.1.987, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>packages\Tobii.Research.x64.1.6.1.987\lib\net45\Tobii.Research.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActiveMQ\ActiveMQ.cs" />
@@ -201,6 +210,7 @@
     <Compile Include="PipelineControl\DataFaucet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TobiiEyeTracker\EyeXComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ActiveMQ\README.md" />
@@ -212,6 +222,7 @@
     <None Include="GoogleTranslate\README.md" />
     <None Include="packages.config" />
     <None Include="PipelineControl\README.md" />
+    <None Include="TobiiEyeTracker\README.md" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -221,5 +232,9 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('packages\Grpc.Core.1.13.1\build\net45\Grpc.Core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grpc.Core.1.13.1\build\net45\Grpc.Core.targets'))" />
+    <Error Condition="!Exists('packages\Tobii.EyeX.Client.1.8.503\build\Tobii.EyeX.Client.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Tobii.EyeX.Client.1.8.503\build\Tobii.EyeX.Client.targets'))" />
+    <Error Condition="!Exists('packages\Tobii.Research.x64.1.6.1.987\build\Tobii.Research.x64.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Tobii.Research.x64.1.6.1.987\build\Tobii.Research.x64.targets'))" />
   </Target>
+  <Import Project="packages\Tobii.EyeX.Client.1.8.503\build\Tobii.EyeX.Client.targets" Condition="Exists('packages\Tobii.EyeX.Client.1.8.503\build\Tobii.EyeX.Client.targets')" />
+  <Import Project="packages\Tobii.Research.x64.1.6.1.987\build\Tobii.Research.x64.targets" Condition="Exists('packages\Tobii.Research.x64.1.6.1.987\build\Tobii.Research.x64.targets')" />
 </Project>
