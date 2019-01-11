@@ -19,3 +19,7 @@ Google.Cloud.Speech.V1
 Microsoft.Psi.Runtime   
 Microsoft.Psi.Runtime.Windows   
 Microsoft.Psi.Audio   
+
+# Contributors
+Alex Mussell
+James Brooks

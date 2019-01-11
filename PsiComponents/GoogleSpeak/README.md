@@ -15,3 +15,8 @@ Microsoft.Psi.Runtime
 Microsoft.Psi.Runtime.Windows   
 Microsoft.Psi.Audio   
 Google.Cloud.TextToSpeech.V1   
+
+# Contributors 
+Edgar Sosa
+Alex Mussell
+James Brooks

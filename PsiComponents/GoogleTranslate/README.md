@@ -18,3 +18,7 @@ when instantiating this component.
 Google.Cloud.Translation.V2   
 Microsoft.Psi.Runtime   
 Microsoft.Psi.Runtime.Windows   
+
+# Contributors
+James Brooks
+Alex Mussell
